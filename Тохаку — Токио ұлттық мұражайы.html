@@ -1,0 +1,489 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Тохаку — Токио ұлттық мұражайы</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Golos+Text:wght@400;500;600&family=Shippori+Mincho:wght@700;800&display=swap">
+<style>
+/* Layout: festival-bright Japan in traditional colours (dentō-shoku). Indigo night hero with a rising
+   vermilion sun, a map of where the treasures came from, photo cards opening like shoji doors, noren curtains
+   for eras. CSS-only motion (transform/opacity), no JS animation loops. Single committed look. */
+:root{
+  --kinari:#f7f0e3; --ai:#1b2a55; --ai-deep:#101a3a; --shu:#e5452a; --yamabuki:#f6a821;
+  --sakura:#f3b4c2; --matcha:#6f9a3b; --fuji:#8a6bb8; --sumi:#1c1a1f; --sumi-2:#5a5560;
+  --f-display:"Cormorant Garamond",Georgia,"Times New Roman",serif;
+  --f-kanji:"Shippori Mincho","Hiragino Mincho ProN","Yu Mincho",serif;
+  --f-body:"Golos Text",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --gl:max(16px, env(safe-area-inset-left,0px));
+  --gr:max(16px, env(safe-area-inset-right,0px));
+  --wave-a:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='60' height='30'><g fill='none' stroke='%23f3b4c2' stroke-width='1.6'><path d='M0 30a30 30 0 0 1 60 0M10 30a20 20 0 0 1 40 0M20 30a10 10 0 0 1 20 0'/><path d='M-30 15a30 30 0 0 1 60 0M30 15a30 30 0 0 1 60 0'/></g></svg>");
+  --wave-b:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='60' height='30'><rect width='60' height='30' fill='%23243a78'/><g fill='%23243a78' stroke='%23f7f0e3' stroke-width='1.6'><path d='M-30 30a30 30 0 0 1 60 0M30 30a30 30 0 0 1 60 0'/><path d='M0 30a30 30 0 0 1 60 0M10 30a20 20 0 0 1 40 0M20 30a10 10 0 0 1 20 0'/></g></svg>");
+  --wave-c:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='60' height='30'><rect width='60' height='30' fill='%23101a3a'/><g fill='%23101a3a' stroke='%23f6a821' stroke-width='1.6'><path d='M-30 30a30 30 0 0 1 60 0M30 30a30 30 0 0 1 60 0'/><path d='M0 30a30 30 0 0 1 60 0M10 30a20 20 0 0 1 40 0M20 30a10 10 0 0 1 20 0'/></g></svg>");
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--kinari);color:var(--sumi);font-family:var(--f-body);font-size:17px;line-height:1.62;overflow-x:hidden}
+::selection{background:var(--shu);color:#fff}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--shu);outline-offset:3px}
+.wrap{max-width:1120px;margin:0 auto;padding-left:var(--gl);padding-right:var(--gr)}
+.sec{padding-block:clamp(64px,9vw,110px)}
+.kicker{display:inline-flex;align-items:center;gap:10px;font-size:12.5px;letter-spacing:.2em;text-transform:uppercase;font-weight:600}
+.kicker b{font-family:var(--f-kanji);font-size:15px;letter-spacing:.1em;padding:3px 9px;border-radius:3px;background:var(--shu);color:#fff}
+h2{font-family:var(--f-display);font-weight:600;font-size:clamp(34px,5vw,62px);line-height:1;letter-spacing:-.01em;margin:14px 0 16px;text-wrap:balance}
+h2 em{font-style:italic}
+.intro{max-width:62ch;margin:0;color:var(--sumi-2);font-size:18px}
+
+/* HERO */
+.hero{position:relative;overflow:hidden;background:var(--ai);color:var(--kinari);isolation:isolate}
+.hero::before{content:"";position:absolute;inset:0;z-index:-2;background:radial-gradient(90% 70% at 72% 38%,#2c3f7a 0%,var(--ai) 50%,var(--ai-deep) 100%)}
+.sun{position:absolute;z-index:-1;right:clamp(-60px,6vw,120px);top:clamp(60px,9vw,110px);width:clamp(220px,34vw,420px);aspect-ratio:1;border-radius:50%;
+  background:radial-gradient(circle at 35% 30%,#ff7a4f,var(--shu) 55%,#c2321b);box-shadow:0 0 80px rgba(229,69,42,.45);animation:rise 2s cubic-bezier(.2,.8,.2,1) both}
+@keyframes rise{from{transform:translateY(55%);opacity:0}to{transform:none;opacity:1}}
+.waves{position:absolute;left:0;right:0;bottom:0;height:150px;z-index:0;overflow:hidden}
+.waves i{position:absolute;left:0;right:-120px;bottom:0;background-repeat:repeat;background-size:60px 30px;will-change:transform;animation:drift 14s linear infinite}
+.waves i:nth-child(1){top:0;opacity:.35;background-image:var(--wave-a)}
+.waves i:nth-child(2){top:40px;background-image:var(--wave-b);animation-duration:10s;animation-direction:reverse}
+.waves i:nth-child(3){top:84px;background-image:var(--wave-c);animation-duration:18s}
+@keyframes drift{to{transform:translateX(-120px)}}
+.hero-in{position:relative;z-index:1;display:grid;grid-template-columns:1fr auto;gap:24px;align-items:center;padding-block:110px 190px}
+.hero h1{font-family:var(--f-display);font-weight:600;font-size:clamp(48px,8vw,110px);line-height:.92;letter-spacing:-.02em;margin:18px 0 0;max-width:10ch}
+.hero h1 span{display:block;animation:up 1.2s cubic-bezier(.2,.8,.2,1) both}
+.hero h1 span:nth-child(2){animation-delay:.15s;font-style:italic;color:var(--yamabuki)}
+.hero h1 span:nth-child(3){animation-delay:.3s}
+@keyframes up{from{opacity:0;transform:translateY(40px)}to{opacity:1;transform:none}}
+.hero p{max-width:44ch;margin:22px 0 0;color:#d6d3e4;font-size:18.5px;animation:up 1.2s .5s both}
+.hero .kicker{color:var(--sakura);animation:up 1s both}
+.tate{writing-mode:vertical-rl;font-family:var(--f-kanji);font-weight:800;font-size:clamp(28px,4vw,52px);letter-spacing:.3em;line-height:1;color:#fff;animation:up 1.4s .6s both}
+.hanko{display:inline-grid;place-items:center;margin-top:18px;width:54px;height:54px;background:var(--shu);color:#fff;font-size:20px;letter-spacing:0;border-radius:6px;transform:rotate(-4deg)}
+.facts{display:flex;flex-wrap:wrap;gap:10px;margin-top:28px;animation:up 1.2s .7s both}
+.facts span{font-size:14px;padding:7px 14px;border-radius:99px;background:rgba(247,240,227,.1);border:1px solid rgba(247,240,227,.22);color:#f2ecde}
+.facts b{color:var(--yamabuki);font-weight:600}
+.leaf{position:absolute;top:-30px;z-index:2;width:22px;height:22px;pointer-events:none;will-change:transform;animation:fall linear infinite}
+.leaf svg{width:100%;height:100%;display:block}
+@keyframes fall{0%{transform:translate(0,-20px) rotate(0)}100%{transform:translate(80px,760px) rotate(540deg)}}
+@media (max-width:720px){
+  .hero-in{grid-template-columns:1fr;padding-block:90px 170px}
+  .tate{position:absolute;right:var(--gr);top:84px;font-size:24px}
+  .tate .hanko{width:40px;height:40px;font-size:15px}
+  .sun{right:-70px;top:auto;bottom:120px;width:240px}
+  .hero h1{max-width:calc(100% - 44px)}
+}
+
+/* MAP */
+.map-sec{position:relative;overflow:hidden;isolation:isolate;background:linear-gradient(180deg,#fde4ea 0%,#fbeee8 60%,var(--kinari) 100%)}
+.map-sec .blob{position:absolute;z-index:-1;border-radius:50%;filter:blur(60px);opacity:.55;will-change:transform;animation:float 18s ease-in-out infinite alternate}
+.map-sec .b1{width:420px;height:420px;left:-120px;top:-80px;background:#f7a6bb}
+.map-sec .b2{width:360px;height:360px;right:-100px;top:30%;background:#ffd28a;animation-duration:22s}
+.map-sec .b3{width:300px;height:300px;left:35%;bottom:-140px;background:#c9b6f0;animation-duration:26s}
+@keyframes float{0%{transform:translate(0,0) scale(1)}50%{transform:translate(60px,40px) scale(1.12)}100%{transform:translate(-30px,80px) scale(.95)}}
+.map-sec .asanoha{position:absolute;inset:0;z-index:-1;opacity:.35;background-size:56px 97px;
+  background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='56' height='97'><g fill='none' stroke='%23e58aa2' stroke-width='.7'><path d='M28 0v97M0 16v65M56 16v65M0 16l56 32M0 48l56 33M56 16L0 48M56 48L0 81M0 16l28-16 28 16M0 81l28 16 28-16M0 48h56'/></g></svg>");
+  -webkit-mask:linear-gradient(180deg,#000,transparent 85%);mask:linear-gradient(180deg,#000,transparent 85%);animation:pan 40s linear infinite}
+@keyframes pan{to{background-position:56px 97px}}
+.petal{position:absolute;top:-24px;z-index:0;width:14px;height:11px;border-radius:12px 1px 12px 1px;background:linear-gradient(135deg,#ffd6e0,#f08aa6);pointer-events:none;will-change:transform;animation:petal linear infinite}
+@keyframes petal{0%{transform:translate(0,0) rotate(0)}25%{transform:translate(30px,25vh) rotate(120deg)}50%{transform:translate(-10px,50vh) rotate(220deg)}75%{transform:translate(40px,75vh) rotate(320deg)}100%{transform:translate(10px,105vh) rotate(420deg)}}
+.map-sec .wrap{position:relative;z-index:1}
+.map-sec h2 em{background:linear-gradient(90deg,var(--shu),#e05f8a,var(--fuji),var(--shu));background-size:300% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:sheen 6s linear infinite}
+@keyframes sheen{to{background-position:300% 0}}
+.places li{transition:opacity .7s cubic-bezier(.2,.8,.2,1),transform .7s cubic-bezier(.2,.8,.2,1);transition-delay:calc(var(--i)*90ms)}
+.js .places:not(.in) li{opacity:.001;transform:translateX(30px)}
+.places button{background:rgba(255,255,255,.82);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
+.map-box{background:rgba(255,255,255,.9)}
+.map-grid{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:clamp(24px,4vw,56px);align-items:center;margin-top:36px}
+.map-box{position:relative;background:#fff;border-radius:22px;padding:14px;box-shadow:0 20px 50px -30px rgba(27,42,85,.45)}
+.map-box svg{display:block;width:100%;height:auto;max-width:100%}
+.sea{fill:#e8eefb}
+.land{fill:var(--kinari);stroke:var(--ai);stroke-width:1.6;stroke-linejoin:round;stroke-dasharray:1600;stroke-dashoffset:0;transition:stroke-dashoffset 2.4s cubic-bezier(.4,.1,.2,1)}
+.js .map-box:not(.in) .land{stroke-dashoffset:1600}
+.grid-l{stroke:#c9d4ef;stroke-width:.6}
+.pin{cursor:pointer;outline:none}
+.pin .halo{transform-box:fill-box;transform-origin:center;animation:pulse 2.4s ease-out infinite}
+.pin .dot{stroke:#fff;stroke-width:2;transition:r .3s}
+.pin text{font-family:var(--f-body);font-size:11px;font-weight:600;fill:var(--ai);paint-order:stroke;stroke:#fff;stroke-width:3px}
+.pin.home text{font-size:13px}
+.pin.on .dot{r:9}
+.pin:focus-visible .dot{stroke:var(--shu)}
+@keyframes pulse{0%{transform:scale(.6);opacity:.7}100%{transform:scale(2.6);opacity:0}}
+.places{list-style:none;margin:0;padding:0;display:grid;gap:10px}
+.places button{all:unset;box-sizing:border-box;cursor:pointer;width:100%;display:grid;grid-template-columns:14px 1fr;gap:2px 14px;padding:12px 16px;border-radius:14px;background:#fff;border:1px solid transparent;transition:transform .25s,border-color .25s,box-shadow .25s}
+.places button:hover,.places button[aria-pressed="true"]{transform:translateX(6px);border-color:var(--c);box-shadow:0 8px 24px -16px var(--c)}
+.places button:focus-visible{outline:2px solid var(--shu)}
+.places .sw{width:14px;height:14px;border-radius:50%;background:var(--c);margin-top:5px;grid-row:span 2}
+.places strong{font-weight:600;font-size:16.5px}
+.places small{color:var(--sumi-2);font-size:14.5px;line-height:1.45}
+@media (max-width:820px){.map-grid{grid-template-columns:1fr}}
+
+/* HISTORY */
+.hist{background:var(--yamabuki);color:var(--sumi)}
+.hist .kicker b{background:var(--ai)}
+.hist .intro{color:#3b2a10}
+.road{display:flex;gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;padding:30px 2px 12px;margin-top:10px}
+.stop{flex:0 0 min(260px,78vw);scroll-snap-align:start;background:var(--kinari);border-radius:18px;padding:22px 22px 24px;transition:transform .35s cubic-bezier(.2,.8,.2,1)}
+.stop:hover{transform:translateY(-6px) rotate(-.6deg)}
+.stop .y{font-family:var(--f-display);font-weight:600;font-size:52px;line-height:1;color:var(--shu);font-variant-numeric:lining-nums}
+.stop .k{font-family:var(--f-kanji);font-size:12px;letter-spacing:.2em;color:var(--fuji);margin:6px 0 10px}
+.stop h3{font-family:var(--f-display);font-size:25px;line-height:1.15;margin:0 0 6px}
+.stop p{margin:0;font-size:15.5px;color:var(--sumi-2)}
+.goals{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:26px}
+.goal{border:2px solid var(--sumi);border-radius:16px;padding:18px 20px}
+.goal h4{margin:0 0 4px;font-family:var(--f-display);font-size:24px}
+.goal h4 span{font-family:var(--f-kanji);color:var(--shu);margin-right:8px;font-size:18px}
+.goal p{margin:0;font-size:15.5px;color:#3b2a10}
+@media (max-width:760px){.goals{grid-template-columns:1fr}}
+
+/* COLLECTION */
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:40px}
+.card{background:#fff;border-radius:20px;padding:12px;display:flex;flex-direction:column;gap:12px;box-shadow:0 18px 40px -28px rgba(28,26,31,.5);min-width:0;transition:transform .45s cubic-bezier(.2,.8,.2,1),box-shadow .45s}
+.card:nth-child(3n+1){transform:rotate(-1deg)}
+.card:nth-child(3n+3){transform:rotate(1deg)}
+.card:hover{transform:translateY(-8px) rotate(0);box-shadow:0 30px 50px -30px var(--c)}
+.ph{position:relative;aspect-ratio:4/3;border-radius:12px;overflow:hidden;background:var(--c);display:grid;place-items:center;max-width:100%}
+.ph .ph-k{font-family:var(--f-kanji);font-weight:800;font-size:60px;color:rgba(255,255,255,.92);letter-spacing:.06em;writing-mode:vertical-rl}
+.ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transform:scale(1.12);transition:transform 6s cubic-bezier(.2,.6,.2,1)}
+.card.in .ph img{transform:scale(1)}
+.card:hover .ph img{transform:scale(1.06);transition-duration:1.2s}
+.ph::before,.ph::after{content:"";position:absolute;top:0;bottom:0;width:50.5%;z-index:2;
+  background:repeating-linear-gradient(90deg,transparent 0 46px,rgba(28,26,31,.14) 46px 48px),repeating-linear-gradient(0deg,transparent 0 38px,rgba(28,26,31,.14) 38px 40px),var(--kinari);
+  transition:transform 1.1s cubic-bezier(.7,0,.2,1) .15s}
+.ph::before{left:0;transform:translateX(-101%)}
+.ph::after{right:0;transform:translateX(101%)}
+.js .card:not(.in) .ph::before,.js .card:not(.in) .ph::after{transform:translateX(0)}
+.card .meta{padding:2px 8px 8px;display:flex;flex-direction:column;gap:6px}
+.badge{align-self:flex-start;font-size:11.5px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;padding:4px 10px;border-radius:99px;background:var(--c);color:#fff}
+.card h3{font-family:var(--f-display);font-size:27px;line-height:1.1;margin:2px 0 0}
+.card .jp{font-family:var(--f-kanji);font-size:13px;color:var(--sumi-2);letter-spacing:.08em}
+.card p{margin:0;font-size:15.5px;color:var(--sumi-2)}
+@media (max-width:960px){.cards{grid-template-columns:1fr 1fr}}
+@media (max-width:600px){.cards{grid-template-columns:1fr}.card{transform:none!important}}
+
+/* ERAS */
+.eras-sec{background:var(--ai);color:var(--kinari)}
+.eras-sec .intro{color:#c9c8dc}
+.eras-sec .kicker{color:var(--sakura)}
+.noren{display:flex;gap:6px;margin-top:40px;height:320px;align-items:flex-start}
+.nr{all:unset;box-sizing:border-box;cursor:pointer;flex:1 1 0;min-width:0;height:100%;background:var(--c);border-radius:0 0 10px 10px;position:relative;transform-origin:top center;
+  display:flex;flex-direction:column;align-items:center;padding-top:22px;transition:flex-grow .5s cubic-bezier(.2,.8,.2,1),transform .5s;color:#fff}
+.nr::before{content:"";position:absolute;left:0;right:0;top:0;height:14px;background:rgba(0,0,0,.22)}
+.nr::after{content:"";position:absolute;left:50%;bottom:-1px;width:2px;height:38%;background:var(--ai);transform:translateX(-50%)}
+.nr .k{font-family:var(--f-kanji);font-weight:800;font-size:clamp(17px,2.4vw,28px);writing-mode:vertical-rl;letter-spacing:.15em;margin-top:10px}
+.nr:hover{transform:rotate(1.2deg)}
+.nr[aria-selected="true"]{flex-grow:2.4}
+.nr:focus-visible{outline:3px solid #fff;outline-offset:-6px}
+.era-out{margin-top:26px;display:grid;grid-template-columns:minmax(0,auto) minmax(0,1fr);gap:6px 28px;align-items:baseline;min-height:120px}
+.era-out .nm{font-family:var(--f-display);font-weight:600;font-size:clamp(32px,4vw,48px);line-height:1;color:var(--c,#fff);grid-row:span 3;filter:brightness(1.35)}
+.era-out .dt{font-size:12.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--yamabuki)}
+.era-out p{margin:0;max-width:62ch;color:#dedced;font-size:17.5px}
+.era-out .ex{font-size:15px;color:#aeadc8}
+.era-out .ex b{color:#fff;font-weight:500}
+.era-out .sw{transition:opacity .3s,transform .3s}
+.era-out.out .sw{opacity:0;transform:translateY(6px)}
+@media (max-width:720px){.noren{height:210px;gap:4px}.era-out{grid-template-columns:1fr}.era-out .nm{grid-row:auto}}
+
+/* TECH */
+.tech{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:36px}
+.tc{border-radius:18px;padding:22px;color:#fff;background:var(--c);display:flex;flex-direction:column;gap:8px;min-width:0;transition:transform .35s cubic-bezier(.2,.8,.2,1)}
+.tc:hover{transform:translateY(-6px) rotate(-.5deg)}
+.tc .k{font-family:var(--f-kanji);font-size:30px;line-height:1}
+.tc h3{margin:6px 0 0;font-family:var(--f-display);font-size:25px;line-height:1.1}
+.tc p{margin:0;font-size:15px;opacity:.92}
+.tc a{margin-top:auto;padding-top:8px;font-size:12.5px;font-weight:600;letter-spacing:.1em}
+@media (max-width:900px){.tech{grid-template-columns:1fr 1fr}}
+@media (max-width:520px){.tech{grid-template-columns:1fr}}
+
+.src{background:var(--kinari)}
+.src-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,320px),1fr));gap:12px;margin-top:30px;counter-reset:s}
+.src-grid a{counter-increment:s;display:grid;grid-template-columns:auto 1fr;gap:2px 14px;align-items:start;text-decoration:none;background:#fff;border-radius:14px;padding:14px 16px;border:1px solid rgba(28,26,31,.08);transition:transform .3s cubic-bezier(.2,.8,.2,1),border-color .3s,box-shadow .3s;min-width:0}
+.src-grid a::before{content:counter(s,decimal-leading-zero);grid-row:span 2;font-family:var(--f-display);font-weight:600;font-size:24px;line-height:1;color:var(--shu);font-variant-numeric:tabular-nums}
+.src-grid a:hover{transform:translateY(-3px);border-color:var(--shu);box-shadow:0 12px 26px -18px var(--shu)}
+.src-grid strong{font-weight:600;font-size:15.5px;line-height:1.3;overflow-wrap:anywhere}
+.src-grid small{font-size:13.5px;color:var(--sumi-2);overflow-wrap:anywhere}
+.src-grid small i{font-style:normal;color:var(--fuji)}
+footer{background:var(--sumi);color:#cfc9d6;padding-block:44px;font-size:14px}
+footer .wrap{display:flex;flex-wrap:wrap;gap:20px 40px;justify-content:space-between}
+footer ul{list-style:none;margin:0;padding:0;display:grid;gap:6px}
+footer a{color:#fff;text-underline-offset:3px}
+footer .t{font-family:var(--f-display);font-size:24px;color:#fff;margin:0 0 6px}
+
+.rv{transition:opacity .9s cubic-bezier(.2,.8,.2,1),transform .9s cubic-bezier(.2,.8,.2,1)}
+.rv.pre{opacity:.001;transform:translateY(26px)}
+
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  .leaf{display:none}
+  .rv.pre{opacity:1;transform:none}
+  .js .card:not(.in) .ph::before{transform:translateX(-101%)}
+  .js .card:not(.in) .ph::after{transform:translateX(101%)}
+  .js .map-box:not(.in) .land{stroke-dashoffset:0}
+  .js .places:not(.in) li{opacity:1;transform:none}
+  .petal{display:none}
+}
+</style>
+
+<header class="hero" id="top">
+  <div class="sun" aria-hidden="true"></div>
+  <div id="leaves" aria-hidden="true"></div>
+  <div class="wrap hero-in">
+    <div>
+      <span class="kicker">Кейс-талдау · Бір мұражай — бір тарих</span>
+      <h1><span>Токио</span><span>ұлттық</span><span>мұражайы</span></h1>
+      <p>Жапонияның ең көне мұражайы. 1872 жылдан бері Уэно саябағында жапон өнерінің он алты мың жылдық тарихын сақтап келеді.</p>
+      <div class="facts"><span><b>1872</b> жылы ашылған</span><span><b>120 000+</b> жәдігер</span><span><b>89</b> ұлттық қазына</span></div>
+    </div>
+    <div class="tate" aria-label="Tōkyō Kokuritsu Hakubutsukan">東京国立博物館<span class="hanko" aria-hidden="true">東博</span></div>
+  </div>
+  <div class="waves" aria-hidden="true"><i></i><i></i><i></i></div>
+</header>
+
+<section class="sec map-sec" id="map">
+  <div class="asanoha" aria-hidden="true"></div><i class="blob b1" aria-hidden="true"></i><i class="blob b2" aria-hidden="true"></i><i class="blob b3" aria-hidden="true"></i><div id="petals" aria-hidden="true"></div>
+  <div class="wrap">
+    <span class="kicker"><b>地図</b> Карта</span>
+    <h2>Қазыналар <em>қайдан</em> келді?</h2>
+    <p class="intro">Мұражай Токиода тұр, бірақ оның жәдігерлері бүкіл Жапониядан жиналған.</p>
+    <div class="map-grid">
+      <div class="map-box" id="mapBox"><svg id="japan" viewBox="0 0 520 560" role="img" aria-label="Жапония картасы, жәдігерлердің шыққан жерлері белгіленген"></svg></div>
+      <ul class="places" id="places"></ul>
+    </div>
+  </div>
+</section>
+
+<section class="sec hist" id="history">
+  <div class="wrap">
+    <span class="kicker"><b>壱</b> Қашан және не үшін ашылған?</span>
+    <h2>Мэйдзи дәуірінде туған мұражай</h2>
+    <p class="intro">1872 жылы наурызда Білім министрлігі Юсима Сэйдо ғибадатханасында алғашқы көпшілік көрмесін өткізді. Бұл күн мұражайдың туған күні саналады. Жапония батысқа жаңа ғана ашылып, ескі мұра жоғалып бара жатқан кез еді.</p>
+    <div class="road" tabindex="0" aria-label="Мұражай тарихы, көлденең айналдырыңыз">
+      <article class="stop"><div class="y">1872</div><div class="k">明治五年</div><h3>Алғашқы көрме</h3><p>Юсима Сэйдода Жапониядағы тұңғыш қоғамдық мұражай ашылды.</p></article>
+      <article class="stop"><div class="y">1882</div><div class="k">上野公園</div><h3>Уэно саябағы</h3><p>Мұражай Джосайя Кондер жобалаған ғимаратқа, қазіргі орнына көшті.</p></article>
+      <article class="stop"><div class="y">1938</div><div class="k">本館</div><h3>Хонкан</h3><p>1923 жылғы жер сілкінісінен кейін «Империялық тәж» стиліндегі бас ғимарат салынды.</p></article>
+      <article class="stop"><div class="y">1999</div><div class="k">法隆寺宝物館</div><h3>Хорюдзи галереясы</h3><p>VII ғасырдағы буддалық жәдігерлерге арналған заманауи ғимарат ашылды.</p></article>
+      <article class="stop"><div class="y">2022</div><div class="k">創立150年</div><h3>150 жыл</h3><p>Барлық 89 ұлттық қазына тарихта алғаш рет бір көрмеде көрсетілді.</p></article>
+    </div>
+    <div class="goals">
+      <div class="goal rv"><h4><span>保存</span>Сақтау</h4><p>Реформалар кезінде ғибадатхана өнері жойылып, шетелге сатылды. Мұражай оны құтқарды.</p></div>
+      <div class="goal rv"><h4><span>啓蒙</span>Ағарту</h4><p>Халықты ғылыммен, өнермен және өз тарихымен таныстыру.</p></div>
+      <div class="goal rv"><h4><span>発信</span>Әлемге таныту</h4><p>Халықаралық көрмелер арқылы Жапония мәдениетін көрсету.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="collection">
+  <div class="wrap">
+    <span class="kicker"><b>弐</b> Қандай коллекцияларымен танымал?</span>
+    <h2>Алты <em>атақты</em> жәдігер</h2>
+    <p class="intro">Коллекцияда кескіндеме, каллиграфия, мүсін, керамика, лак бұйымдар, тоқыма және қару-жарақ бар.</p>
+    <div class="cards">
+      <article class="card" style="--c:var(--shu)"><div class="ph" data-photo="img/kaen.jpg" data-alt="Дзёмон дәуірінің отты құмырасы"><span class="ph-k">火焔</span></div>
+        <div class="meta"><span class="badge">Дзёмон · б.з.д. ~3000</span><h3>Отты құмыра</h3><span class="jp">火焔型土器</span><p>Жиегі жалын тәрізді сазды ыдыс. Дзёмон керамикасы әлемдегі ең көне құмыралардың қатарында.</p></div></article>
+      <article class="card" style="--c:var(--matcha)"><div class="ph" data-photo="img/haniwa.jpg" data-alt="Сауытты жауынгер ханива мүсіні"><span class="ph-k">埴輪</span></div>
+        <div class="meta"><span class="badge">Ұлттық қазына · VI ғ.</span><h3>Сауытты жауынгер ханива</h3><span class="jp">挂甲の武人</span><p>Билеуші қорғанын күзеткен сазды мүсін. Ұлттық қазына атанған алғашқы ханива.</p></div></article>
+      <article class="card" style="--c:var(--sumi)"><div class="ph" data-photo="img/shorinzu.jpg" data-alt="Хасэгава Тохакудың Қарағайлы тоғай ширмасы"><span class="ph-k">松林</span></div>
+        <div class="meta"><span class="badge">Ұлттық қазына · XVI ғ.</span><h3>«Қарағайлы тоғай» ширмасы</h3><span class="jp">松林図屏風 · 長谷川等伯</span><p>Хасэгава Тохаку тек қара сиямен салған тұманды қарағайлар. Жапон монохромды кескіндемесінің шыңы.</p></div></article>
+      <article class="card" style="--c:var(--fuji)"><div class="ph" data-photo="img/sesshu.jpg" data-alt="Сэссюдің қысқы пейзажы"><span class="ph-k">雪舟</span></div>
+        <div class="meta"><span class="badge">Ұлттық қазына · XV ғ.</span><h3>Сэссюдің қыс пейзажы</h3><span class="jp">秋冬山水図</span><p>Дзэн монахы Сэссю салған пейзаж. Аспанды тіліп өтетін батыл сызығымен әйгілі.</p></div></article>
+      <article class="card" style="--c:var(--ai)"><div class="ph" data-photo="img/katana.jpg" data-alt="Жапон қылышы мен самурай сауыты"><span class="ph-k">日本刀</span></div>
+        <div class="meta"><span class="badge">Камакура — Эдо</span><h3>Самурай қылыштары мен сауыттары</h3><span class="jp">日本刀 · 甲冑</span><p>Әйгілі ұсталар соққан катаналар мен жібек баулы сауыттар. Мұнда қару өнер туындысы ретінде көрсетіледі.</p></div></article>
+      <article class="card" style="--c:var(--yamabuki)"><div class="ph" data-photo="img/dogu.jpg" data-alt="Көзілдірікті догу мүсіншесі"><span class="ph-k">土偶</span></div>
+        <div class="meta"><span class="badge">Дзёмон · б.з.д. ~1000</span><h3>«Көзілдірікті» догу</h3><span class="jp">遮光器土偶</span><p>Көздері қар көзілдірігіне ұқсайтын сазды мүсінше. Жапон археологиясының символы.</p></div></article>
+    </div>
+  </div>
+</section>
+
+<section class="sec eras-sec" id="eras">
+  <div class="wrap">
+    <span class="kicker"><b>参</b> Қай кезеңнің мәдениетін көрсетеді?</span>
+    <h2>Дзёмоннан <em>Мэйдзиге</em> дейін</h2>
+    <p class="intro">Хонкан ғимаратының екінші қабатында келуші залдан залға өткен сайын бір дәуірден келесісіне өтеді.</p>
+    <div class="noren" id="noren" role="tablist" aria-label="Жапон тарихының дәуірлері"></div>
+    <div class="era-out" id="eraOut" role="tabpanel" aria-live="polite">
+      <div class="nm sw" id="eName"></div>
+      <div class="dt sw" id="eDt"></div>
+      <p class="sw" id="eTx"></p>
+      <div class="ex sw" id="eEx"></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="tech">
+  <div class="wrap">
+    <span class="kicker"><b>四</b> Қандай технологияларды қолданады?</span>
+    <h2>Көне өнер, <em>цифрлық</em> өмір</h2>
+    <p class="intro">Нәзік туындыларды жылына бірнеше аптадан артық көрсетуге болмайды. Сондықтан мұражай оларды цифрлық жолмен көпшілікке жеткізеді.</p>
+    <div class="tech">
+      <article class="tc rv" style="--c:var(--ai)"><span class="k">網</span><h3>ColBase</h3><p>Төрт ұлттық мұражайдың ашық онлайн базасы: мыңдаған жәдігердің жоғары сапалы суреттері.</p><a href="https://colbase.nich.go.jp/" target="_blank" rel="noopener">colbase.nich.go.jp →</a></article>
+      <article class="tc rv" style="--c:var(--shu)"><span class="k">八</span><h3>8K және көшірмелер</h3><p>Bunkatsu орталығы ұлттық қазыналардың 8K бейнелері мен дәл көшірмелерін жасайды.</p></article>
+      <article class="tc rv" style="--c:var(--matcha)"><span class="k">立</span><h3>3D және виртуал тур</h3><p>Мүсіндер 3D форматта цифрландырылып, онлайн жан-жағынан қаралады.</p></article>
+      <article class="tc rv" style="--c:var(--fuji)"><span class="k">券</span><h3>Онлайн билет, аудиогид</h3><p>Уақыт слоттары бар электронды билеттер және көптілді смартфон гиді.</p><a href="https://www.tnm.jp/?lang=en" target="_blank" rel="noopener">tnm.jp →</a></article>
+    </div>
+  </div>
+</section>
+
+<section class="sec src" id="sources">
+  <div class="wrap">
+    <span class="kicker"><b>典拠</b> Дереккөздер</span>
+    <h2>Ақпарат <em>қайдан</em> алынды</h2>
+    <div class="src-grid">
+      <a href="https://en.wikipedia.org/wiki/Tokyo_National_Museum" target="_blank" rel="noopener"><strong>Tokyo National Museum</strong><small><i>Wikipedia</i> · Мұражай тарихы, ғимараттар, коллекция көлемі</small></a>
+      <a href="https://en.wikipedia.org/wiki/Yushima_Seid%C5%8D_Exposition" target="_blank" rel="noopener"><strong>Yushima Seidō Exposition</strong><small><i>Wikipedia</i> · 1872 жылғы алғашқы көрме</small></a>
+      <a href="https://www.tokyoupdates.metro.tokyo.lg.jp/en/post-793/" target="_blank" rel="noopener"><strong>Tokyo National Museum Presents 89 National Treasures</strong><small><i>Tokyo Updates</i> · 150 жылдық мерейтой, 89 ұлттық қазына</small></a>
+      <a href="https://architecture-tokyo.com/2017/06/14/1999-gallery-of-horyuji-treasures-yoshio-taniguchi/" target="_blank" rel="noopener"><strong>Gallery of Horyuji Treasures, Yoshio Taniguchi (1999)</strong><small><i>Architecture Tokyo</i> · Хорюдзи галереясы</small></a>
+      <a href="https://en.wikipedia.org/wiki/J%C5%8Dmon_pottery" target="_blank" rel="noopener"><strong>Jōmon pottery</strong><small><i>Wikipedia</i> · Отты құмыра, Дзёмон керамикасы</small></a>
+      <a href="https://en.wikipedia.org/wiki/Haniwa_Warrior_in_Keiko_Armor" target="_blank" rel="noopener"><strong>Haniwa Warrior in Keiko Armor</strong><small><i>Wikipedia</i> · Сауытты жауынгер ханива</small></a>
+      <a href="https://en.wikipedia.org/wiki/Sh%C5%8Drin-zu_by%C5%8Dbu" target="_blank" rel="noopener"><strong>Shōrin-zu byōbu</strong><small><i>Wikipedia</i> · Тохакудың «Қарағайлы тоғай» ширмасы</small></a>
+      <a href="https://en.wikipedia.org/wiki/Autumn_and_Winter_Landscapes" target="_blank" rel="noopener"><strong>Autumn and Winter Landscapes</strong><small><i>Wikipedia</i> · Сэссюдің пейзаждары</small></a>
+      <a href="https://en.wikipedia.org/wiki/Dog%C5%AB" target="_blank" rel="noopener"><strong>Dogū</strong><small><i>Wikipedia</i> · Догу мүсіншелері</small></a>
+      <a href="https://en.wikipedia.org/wiki/Kamegaoka_Stone_Age_Site" target="_blank" rel="noopener"><strong>Kamegaoka Stone Age Site</strong><small><i>Wikipedia</i> · Көзілдірікті догу табылған жер</small></a>
+      <a href="https://sydney.jpf.go.jp/japanese-studies/resources/colbase-collections-of-national-museums-japan/" target="_blank" rel="noopener"><strong>ColBase: Collections of National Museums, Japan</strong><small><i>The Japan Foundation, Sydney</i> · ColBase онлайн базасы</small></a>
+      <a href="https://fpcj.jp/en/prlisting/the-digital-gallery-of-horyuji-treasures" target="_blank" rel="noopener"><strong>The Digital Gallery of Hōryūji Treasures</strong><small><i>Foreign Press Center Japan</i> · 8K цифрлық галерея</small></a>
+      <a href="https://global.canon/en/tsuzuri/bunkatsuproject.html" target="_blank" rel="noopener"><strong>Tsuzuri Project × Bunkatsu</strong><small><i>Canon</i> · Жоғары дәлдікті көшірмелер</small></a>
+      <a href="https://www.timeout.com/tokyo/news/visit-the-top-museums-in-tokyo-and-across-japan-with-these-virtual-tours-050120" target="_blank" rel="noopener"><strong>Virtual tours of top museums in Tokyo</strong><small><i>Time Out Tokyo</i> · Виртуалды турлар</small></a>
+      <a href="https://www.tnm.jp/?lang=en" target="_blank" rel="noopener"><strong>Tokyo National Museum — ресми сайт</strong><small><i>tnm.jp</i> · Билеттер, көрмелер, аудиогид</small></a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div><p class="t">Токио ұлттық мұражайы</p><p style="margin:0">Зерттеу карточкасы · «Бір мұражай — бір тарих»</p></div>
+  </div>
+</footer>
+
+<script>
+(() => {
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  document.documentElement.classList.add('js');
+
+  /* falling momiji & ginkgo: 9 CSS-animated elements */
+  const leafBox = document.getElementById('leaves');
+  const MOMIJI = '<path d="M12 1l2 6 5-3-2 6 6 1-5 4 3 4-6-1-1 5-2-3-2 3-1-5-6 1 3-4-5-4 6-1-2-6 5 3z"/>';
+  const ICHO = '<path d="M12 21v-6C8 15 3 12 2 6c4-2 8-2 10 3 2-5 6-5 10-3-1 6-6 9-10 9z"/>';
+  if (!reduce) for (let i = 0; i < 9; i++) {
+    const s = document.createElement('div'); s.className = 'leaf';
+    const col = ['#e5452a','#f6a821','#f3b4c2','#ff7a4f'][i % 4];
+    s.innerHTML = `<svg viewBox="0 0 24 24" fill="${col}">${i % 3 ? MOMIJI : ICHO}</svg>`;
+    s.style.left = (4 + i * 10.5 + Math.random() * 5) + '%';
+    s.style.animationDuration = (9 + Math.random() * 7) + 's';
+    s.style.animationDelay = (-Math.random() * 12) + 's';
+    const sz = 22 * (.7 + Math.random() * .7); s.style.width = s.style.height = sz + 'px';
+    leafBox.appendChild(s);
+  }
+
+  /* sakura petals in the map section */
+  const pBox = document.getElementById('petals');
+  if (!reduce) for (let i = 0; i < 10; i++) {
+    const d = document.createElement('i'); d.className = 'petal';
+    d.style.left = (Math.random() * 100) + '%';
+    d.style.animationDuration = (12 + Math.random() * 10) + 's';
+    d.style.animationDelay = (-Math.random() * 20) + 's';
+    const k = .6 + Math.random() * .7; d.style.width = (14 * k) + 'px'; d.style.height = (11 * k) + 'px'; d.style.opacity = .55 + Math.random() * .4;
+    pBox.appendChild(d);
+  }
+
+  /* Japan map */
+  const P = (lon, lat) => [(lon - 128.6) * 29, (46.2 - lat) * 36];
+  const shapes = [
+    [[141.94,45.52],[142.6,44.9],[143.3,44.3],[144.3,44.0],[145.3,44.3],[145.0,43.8],[145.6,43.35],[144.4,42.95],[143.3,42.0],[142.5,42.3],[141.0,42.35],[140.4,41.6],[140.1,41.42],[140.0,42.2],[140.5,43.0],[141.4,43.3],[141.6,44.3],[141.94,45.52]],
+    [[141.45,41.45],[141.4,40.6],[142.07,39.55],[141.6,38.4],[141.0,38.25],[141.0,37.0],[140.7,36.3],[140.85,35.7],[140.4,35.15],[139.85,34.92],[139.8,35.5],[139.65,35.3],[139.1,35.2],[138.85,34.6],[138.6,35.1],[138.2,34.62],[137.1,34.6],[136.85,34.65],[136.9,34.3],[136.2,33.85],[135.77,33.43],[135.1,33.9],[135.3,34.6],[134.7,34.75],[133.9,34.5],[133.0,34.35],[132.4,34.3],[131.4,33.95],[130.9,33.95],[131.0,34.35],[131.6,34.65],[132.5,35.4],[133.1,35.58],[134.3,35.55],[135.3,35.72],[135.9,35.65],[136.05,36.0],[136.7,36.8],[136.75,37.35],[137.35,37.5],[137.0,36.85],[137.6,36.92],[138.25,37.15],[138.9,37.85],[139.5,38.5],[139.85,39.0],[139.7,39.95],[140.0,40.6],[140.3,41.2],[140.65,40.88],[141.2,41.2],[141.45,41.45]],
+    [[132.0,33.35],[132.5,32.9],[133.0,32.72],[133.6,33.5],[134.3,33.25],[134.7,33.9],[134.6,34.2],[134.0,34.4],[133.2,34.1],[132.7,34.0],[132.0,33.35]],
+    [[130.9,33.9],[131.6,33.6],[131.9,33.0],[131.6,32.5],[131.4,31.4],[131.0,31.1],[130.65,31.0],[130.5,31.6],[130.2,31.2],[130.2,32.0],[130.6,32.6],[130.2,32.9],[129.75,32.6],[129.6,33.2],[130.0,33.5],[130.4,33.62],[130.9,33.9]],
+  ];
+  const f = n => n.toFixed(1);
+  const smooth = pts => {
+    const p = pts.map(([a,b]) => P(a,b)); let d = `M${f(p[0][0])} ${f(p[0][1])}`;
+    for (let i = 0; i < p.length - 1; i++) {
+      const p0 = p[i-1] || p[i], p1 = p[i], p2 = p[i+1], p3 = p[i+2] || p2;
+      d += `C${f(p1[0]+(p2[0]-p0[0])/6)} ${f(p1[1]+(p2[1]-p0[1])/6)} ${f(p2[0]-(p3[0]-p1[0])/6)} ${f(p2[1]-(p3[1]-p1[1])/6)} ${f(p2[0])} ${f(p2[1])}`;
+    }
+    return d + 'Z';
+  };
+  const PLACES = [
+    {id:'tokyo', n:'Токио, Уэно', d:'Мұражайдың өзі. Уэно саябағында 1882 жылдан бері тұр.', at:[139.77,35.72], c:'#e5452a', home:true},
+    {id:'aomori', n:'Камэгаока, Аомори', d:'«Көзілдірікті» догу табылған Дзёмон қонысы.', at:[140.33,40.86], c:'#f6a821'},
+    {id:'niigata', n:'Ниигата', d:'Отты құмыралардың отаны, Дзёмон мәдениетінің ошағы.', at:[138.8,37.3], c:'#ff7a4f'},
+    {id:'gunma', n:'Ота, Гумма', d:'Сауытты жауынгер ханива осы жердегі қорғаннан шықты.', at:[139.38,36.29], c:'#6f9a3b'},
+    {id:'noto', n:'Нанао, Ното', d:'Суретші Хасэгава Тохаку дүниеге келген жер.', at:[136.97,37.04], c:'#1c1a1f'},
+    {id:'nara', n:'Нара, Хорюдзи', d:'VII ғасырдағы буддалық қазыналар ғибадатханадан мұражайға тапсырылды.', at:[135.73,34.61], c:'#1b2a55'},
+    {id:'yamaguchi', n:'Ямагути', d:'Сэссю өзінің әйгілі пейзаждарын жасаған өлке.', at:[131.47,34.18], c:'#8a6bb8'},
+  ];
+  const svg = document.getElementById('japan');
+  let h = '<rect class="sea" x="0" y="0" width="520" height="560" rx="14"/>';
+  for (let lat = 32; lat <= 45; lat += 2) { const y = P(0,lat)[1]; h += `<line class="grid-l" x1="0" x2="520" y1="${y}" y2="${y}"/>`; }
+  for (let lon = 130; lon <= 146; lon += 2) { const x = P(lon,0)[0]; h += `<line class="grid-l" y1="0" y2="560" x1="${x}" x2="${x}"/>`; }
+  shapes.forEach(s => h += `<path class="land" d="${smooth(s)}"/>`);
+  PLACES.forEach((p,i) => {
+    const [x,y] = P(...p.at), right = ['tokyo','gunma','aomori'].includes(p.id);
+    h += `<g class="pin${p.home?' home':''}" data-id="${p.id}" tabindex="0" role="button" aria-label="${p.n}">`
+      + `<circle class="halo" cx="${x}" cy="${y}" r="${p.home?10:7}" fill="${p.c}" style="animation-delay:${i*.3}s"/>`
+      + `<circle class="dot" cx="${x}" cy="${y}" r="${p.home?7:5.5}" fill="${p.c}"/>`
+      + `<text x="${right? x+12 : x-12}" y="${y+4}" text-anchor="${right?'start':'end'}">${p.n.split(',')[0]}</text></g>`;
+  });
+  h += `<text x="455" y="530" text-anchor="middle" font-family="Shippori Mincho,serif" font-size="40" font-weight="800" fill="#1b2a55" opacity=".12">日本</text>`;
+  svg.innerHTML = h;
+  const ul = document.getElementById('places');
+  PLACES.forEach((p,i) => ul.insertAdjacentHTML('beforeend', `<li style="--i:${i}"><button data-id="${p.id}" aria-pressed="false" style="--c:${p.c}"><span class="sw"></span><strong>${p.n}</strong><small>${p.d}</small></button></li>`));
+  const pick = id => {
+    ul.querySelectorAll('button').forEach(b => b.setAttribute('aria-pressed', b.dataset.id === id));
+    svg.querySelectorAll('.pin').forEach(g => g.classList.toggle('on', g.dataset.id === id));
+  };
+  ul.addEventListener('click', e => { const b = e.target.closest('button'); if (b) pick(b.dataset.id); });
+  svg.addEventListener('click', e => { const g = e.target.closest('.pin'); if (g) pick(g.dataset.id); });
+  svg.addEventListener('keydown', e => { const g = e.target.closest('.pin'); if (g && (e.key === 'Enter' || e.key === ' ')) { e.preventDefault(); pick(g.dataset.id); } });
+  pick('tokyo');
+
+  /* photos: swap in when the image file exists */
+  document.querySelectorAll('.ph[data-photo]').forEach(ph => {
+    const img = new Image(); img.alt = ph.dataset.alt; img.decoding = 'async';
+    img.onload = () => { ph.querySelector('.ph-k')?.remove(); ph.appendChild(img); };
+    img.src = ph.dataset.photo;
+  });
+
+  /* one observer for reveals */
+  const targets = [...document.querySelectorAll('.rv, .card, #mapBox, #places')];
+  if ('IntersectionObserver' in window && !reduce) {
+    document.querySelectorAll('.rv').forEach(el => { if (el.getBoundingClientRect().top > innerHeight) el.classList.add('pre'); });
+    const io = new IntersectionObserver(es => es.forEach(e => {
+      if (!e.isIntersecting) return;
+      const el = e.target, d = el.classList.contains('card') ? ([...el.parentNode.children].indexOf(el) % 3) * 140 : 0;
+      setTimeout(() => { el.classList.remove('pre'); el.classList.add('in'); }, d);
+      io.unobserve(el);
+    }), {threshold: .2});
+    targets.forEach(t => io.observe(t));
+  } else targets.forEach(t => t.classList.add('in'));
+
+  /* eras as noren curtains */
+  const ERAS = [
+    {k:'縄文', n:'Дзёмон', d:'б.з.д. ~14 000 – ~300', c:'#c8553d', t:'Аңшылар мен терімшілердің ұзақ дәуірі. Арқан ізімен өрнектелген ыдыстар мен рәсімдік догу мүсіншелері жасалды.', ex:'Отты құмыра, көзілдірікті догу'},
+    {k:'弥生', n:'Яёй', d:'б.з.д. ~300 – б.з. ~250', c:'#d98e3a', t:'Құрлықтан күріш егу мен металл өңдеу келді. Қола дотаку қоңыраулары пайда болды.', ex:'Дотаку қоңыраулары'},
+    {k:'古墳', n:'Кофун', d:'~250 – 538', c:'#6f9a3b', t:'Билеушілер алып қорғандарға жерленіп, айналасына ханива мүсіндері қойылды.', ex:'Сауытты жауынгер ханива'},
+    {k:'飛鳥', n:'Асука · Нара', d:'538 – 794', c:'#3c8d8a', t:'Буддизм келді. Алғашқы ғибадатханалар салынып, қола Будда мүсіндері құйылды.', ex:'Хорюдзи қазыналары'},
+    {k:'平安', n:'Хэйан', d:'794 – 1185', c:'#c96a8f', t:'Киото сарайының нәзік мәдениеті: кана әліпбиі, «Гэндзи хикаяты», эмаки шиыршықтары.', ex:'Буддалық кескіндеме, каллиграфия'},
+    {k:'鎌倉', n:'Камакура', d:'1185 – 1333', c:'#8a6bb8', t:'Самурайлар билікке келді. Реалистік мүсін мен әйгілі қылыш ұсталарының дәуірі.', ex:'Катаналар'},
+    {k:'室町', n:'Муромачи', d:'1336 – 1573', c:'#4a5a8f', t:'Дзэн буддизмі гүлденді: монохромды сия кескіндемесі, шай рәсімі, Но театры.', ex:'Сэссю пейзаждары'},
+    {k:'桃山', n:'Момояма', d:'1573 – 1603', c:'#e0a526', t:'Қысқа, бірақ жарқын дәуір. Алтын жапырақты ширмалар мен сарай өнері.', ex:'Тохакудың «Қарағайлы тоғайы»'},
+    {k:'江戸', n:'Эдо', d:'1603 – 1868', c:'#e5452a', t:'250 жылдық бейбіт өмір. Укиё-э гравюралары, кабуки, лак пен кимоно өнері.', ex:'Укиё-э, лак бұйымдар'},
+    {k:'明治', n:'Мэйдзи', d:'1868 – 1912', c:'#2f6fb0', t:'Жапония әлемге ашылды. Мұражайдың өзі дәл осы дәуірде дүниеге келді.', ex:'Дүниежүзілік көрмелерге арналған бұйымдар'},
+  ];
+  const noren = document.getElementById('noren'), out = document.getElementById('eraOut');
+  const eName = document.getElementById('eName'), eDt = document.getElementById('eDt'), eTx = document.getElementById('eTx'), eEx = document.getElementById('eEx');
+  ERAS.forEach((e,i) => noren.insertAdjacentHTML('beforeend', `<button class="nr" role="tab" id="nr-${i}" aria-selected="false" aria-controls="eraOut" aria-label="${e.n}" style="--c:${e.c}"><span class="k">${e.k}</span></button>`));
+  let cur = -1, tm;
+  const sel = i => {
+    if (i === cur) return; cur = i; const e = ERAS[i];
+    noren.querySelectorAll('.nr').forEach((b,j) => b.setAttribute('aria-selected', j === i));
+    out.setAttribute('aria-labelledby', 'nr-' + i);
+    const apply = () => {
+      out.style.setProperty('--c', e.c);
+      eName.textContent = e.n; eDt.textContent = e.d; eTx.textContent = e.t;
+      eEx.innerHTML = '<b>Мұражайда:</b> ' + e.ex; out.classList.remove('out');
+    };
+    clearTimeout(tm);
+    if (reduce) apply(); else { out.classList.add('out'); tm = setTimeout(apply, 180); }
+  };
+  noren.addEventListener('click', e => { const b = e.target.closest('.nr'); if (b) sel(+b.id.split('-')[1]); });
+  noren.addEventListener('mouseover', e => { const b = e.target.closest('.nr'); if (b && matchMedia('(hover:hover)').matches) sel(+b.id.split('-')[1]); });
+  sel(0);
+})();
+</script>
+
+</body></html>
